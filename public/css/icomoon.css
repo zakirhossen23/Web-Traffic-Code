@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?fzzemu');
+  src:  url('fonts/icomoon.eot?fzzemu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fzzemu') format('truetype'),
+    url('fonts/icomoon.woff?fzzemu') format('woff'),
+    url('fonts/icomoon.svg?fzzemu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wallet:before {
+  content: "\e907";
+}
+.icon-money:before {
+  content: "\e907";
+}
+.icon-refresh:before {
+  content: "\e908";
+}
+.icon-clock:before {
+  content: "\e900";
+}
+.icon-time:before {
+  content: "\e900";
+}
+.icon-schedule:before {
+  content: "\e900";
+}
+.icon-linegraph:before {
+  content: "\e901";
+}
+.icon-graph:before {
+  content: "\e901";
+}
+.icon-statistics:before {
+  content: "\e901";
+}
+.icon-piechart:before {
+  content: "\e902";
+}
+.icon-chart:before {
+  content: "\e902";
+}
+.icon-statistic:before {
+  content: "\e902";
+}
+.icon-bargraph:before {
+  content: "\e903";
+}
+.icon-bars:before {
+  content: "\e903";
+}
+.icon-graph1:before {
+  content: "\e903";
+}
+.icon-chart1:before {
+  content: "\e903";
+}
+.icon-stats:before {
+  content: "\e903";
+}
+.icon-statistics1:before {
+  content: "\e903";
+}
+.icon-browser:before {
+  content: "\e904";
+}
+.icon-window:before {
+  content: "\e904";
+}
+.icon-software:before {
+  content: "\e904";
+}
+.icon-program:before {
+  content: "\e904";
+}
+.icon-lifesaver:before {
+  content: "\e905";
+}
+.icon-lifebuoy:before {
+  content: "\e905";
+}
+.icon-download:before {
+  content: "\e906";
+}
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-dribbble:before {
+  content: "\eaa7";
+}
+.icon-linkedin2:before {
+  content: "\eaca";
+}
