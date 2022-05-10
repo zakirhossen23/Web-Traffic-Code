@@ -54,7 +54,9 @@ $(document).ready(function () {
                                     "_token": "{{ csrf_token() }}"
                                 },
                                 success: function(response) {
-                                    alert(response);
+                                    var element = document.getElementById("credits_earned")                                    
+                                    $parsed = Number(element.textContent.replace(/[^\d]/g,''));
+                                    element.textContent = $parsed + 1
                                     openWin();
                                 }
                             });
@@ -124,7 +126,7 @@ $(document).ready(function () {
                                     <tbody>
                                         <tr>
                                             <td>{{Request::getClientIp()}}</td>
-                                            <td>{{number_format($credits_earned, 2)}}</td>
+                                            <td id="credits_earned">{{number_format($credits_earned, 2)}}</td>
                                             <td><span id="status" class="badge badge-danger">Inactive</span></td>
                                         </tr>
                                     </tbody>

@@ -91,7 +91,7 @@
     <body class="sb-nav-fixed">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{ url('/dashboard') }}">SurfyApp - Admin Panel</a>
+      <a class="navbar-brand" href="{{ url('/dashboard') }}">Web Traffic  Exchanger - Admin Panel</a>
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item text-white">
 				  

@@ -91,7 +91,7 @@
     <body class="sb-nav-fixed">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{ url('/dashboard') }}">SurfyApp</a>
+            <a class="navbar-brand" href="{{ url('/dashboard') }}">Web Traffic Exchanger</a>
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item text-white">
 				  <span class="credits">{{ Auth::user()->credits }}</span>
