@@ -34,7 +34,8 @@
                                     <thead>
                                         <tr>
                                             <th class="font-bold">Website URL</th>
-                                            <th class="font-bold">Duration</th>
+                                            <th class="font-bold">Visit Duration</th>
+                                            <th class="font-bold">Hits Limit</th>
                                             <th class="font-bold">Hits Received</th>
                                             <th class="font-bold">Status</th>
                                             <th class="font-bold">Actions</th>
@@ -44,7 +45,8 @@
                                         @forelse($websites as $data)
                                         <tr id="website{{$data->id}}" class="active">
                                             <td style="text-align: center;"><a href="{{$data->url}}" target="_blank">{{$data->url}}</a></td>
-                                            <td style="text-align: center;">{{$site->surf_time}}s</td>
+                                            <td style="text-align: center;">{{$data->duration}}s</td>
+                                            <td style="text-align: center;"><? if ($data->totalhits == -1){ ?>Until i have credits<? }else{ echo $data->totalhits;}?></td>
                                             <td style="text-align: center;">{{$data->hits}}</td>
                                             <td style="text-align: center;"><span class="badge badge-{{$data->status == '0'  ? 'success' : 'info'}}">{{$data->status == '0'  ? 'Active' : 'Paused'}}</span>
                                             </td>
