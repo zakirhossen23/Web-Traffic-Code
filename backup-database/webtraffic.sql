@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 10, 2022 at 03:21 PM
+-- Generation Time: May 10, 2022 at 04:39 PM
 -- Server version: 5.7.37-cll-lve
 -- PHP Version: 7.3.32
 
@@ -334,7 +334,10 @@ CREATE TABLE `websites` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `credits` double(8,2) NOT NULL,
+  `credits` int(11) NOT NULL,
+  `duration` int(11) NOT NULL DEFAULT '10',
+  `haslimit` int(11) NOT NULL DEFAULT '0',
+  `totalhits` int(11) NOT NULL,
   `hits` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -345,16 +348,17 @@ CREATE TABLE `websites` (
 -- Dumping data for table `websites`
 --
 
-INSERT INTO `websites` (`id`, `user_id`, `url`, `credits`, `hits`, `status`, `created_at`, `updated_at`) VALUES
-(3, 1, 'https://treshkarah.qubwebs.com/', 500.00, 14, 0, '2022-05-10 12:47:59', '2022-05-10 14:13:10'),
-(4, 2, 'https://treshkarah.qubwebs.com/', 500.00, 13, 0, '2022-05-10 13:56:42', '2022-05-10 20:22:29'),
-(5, 2, 'https://rose-of-sharon-friendshipcircle.qubwebs.com/', 500.00, 13, 0, '2022-05-10 14:01:58', '2022-05-10 19:56:05'),
-(6, 2, 'https://charonsphere.qubwebs.com/', 500.00, 18, 0, '2022-05-10 14:04:08', '2022-05-10 21:06:33'),
-(7, 3, 'https://lovethchika.qubwebs.com', 20.00, 8, 0, '2022-05-10 14:16:08', '2022-05-10 20:33:38'),
-(8, 4, 'http://Lovethchika.qubwebs.com', 100.00, 17, 0, '2022-05-10 14:44:51', '2022-05-10 21:28:29'),
-(9, 4, 'http://RoseOfSharonFriendshipCircle.com', 100.00, 23, 0, '2022-05-10 14:47:08', '2022-05-10 21:39:31'),
-(10, 1, 'https://academyalert.qubwebs.com/', 500.00, 0, 0, '2022-05-10 18:13:03', '2022-05-10 18:13:03'),
-(11, 1, 'https://adaenjee.qubwebs.com/', 500.00, 0, 0, '2022-05-10 18:14:06', '2022-05-10 18:14:06');
+INSERT INTO `websites` (`id`, `user_id`, `url`, `credits`, `duration`, `haslimit`, `totalhits`, `hits`, `status`, `created_at`, `updated_at`) VALUES
+(3, 1, 'https://treshkarah.qubwebs.com/', 1, 10, 0, -1, 14, 0, '2022-05-10 12:47:59', '2022-05-10 14:13:10'),
+(4, 2, 'https://treshkarah.qubwebs.com/', 1, 10, 0, -1, 13, 0, '2022-05-10 13:56:42', '2022-05-10 20:22:29'),
+(5, 2, 'https://rose-of-sharon-friendshipcircle.qubwebs.com/', 1, 10, 0, -1, 13, 0, '2022-05-10 14:01:58', '2022-05-10 19:56:05'),
+(6, 2, 'https://charonsphere.qubwebs.com/', 1, 10, 0, -1, 18, 0, '2022-05-10 14:04:08', '2022-05-10 21:06:33'),
+(7, 3, 'https://lovethchika.qubwebs.com', 1, 10, 0, -1, 8, 0, '2022-05-10 14:16:08', '2022-05-10 20:33:38'),
+(8, 4, 'http://Lovethchika.qubwebs.com', 1, 10, 0, -1, 17, 0, '2022-05-10 14:44:51', '2022-05-10 21:28:29'),
+(9, 4, 'http://RoseOfSharonFriendshipCircle.com', 1, 10, 0, -1, 23, 0, '2022-05-10 14:47:08', '2022-05-10 21:39:31'),
+(10, 1, 'https://academyalert.qubwebs.com/', 1, 10, 0, -1, 0, 0, '2022-05-10 18:13:03', '2022-05-10 18:13:03'),
+(11, 1, 'https://adaenjee.qubwebs.com/', 1, 10, 0, -1, 0, 0, '2022-05-10 18:14:06', '2022-05-10 18:14:06'),
+(16, 1, 'https://webtraffic.live/', 3, 30, 1, 1000, 0, 0, '2022-05-11 06:21:12', '2022-05-11 06:21:12');
 
 --
 -- Indexes for dumped tables
@@ -456,7 +460,7 @@ ALTER TABLE `user_activities`
 -- AUTO_INCREMENT for table `websites`
 --
 ALTER TABLE `websites`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
