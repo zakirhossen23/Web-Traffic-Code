@@ -43,6 +43,11 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	
+	
+	<!-- Tailwind css style  -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -58,10 +63,10 @@
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="">Surfy</a></div>
+						<div class="col-md-4">
+							<div id="colorlib-logo"><a href="">WEB TRAFFIC EXCHANGER</a></div>
 						</div>
-						<div class="col-md-10 text-right menu-1">
+						<div class="col-md-8 text-right menu-1">
 							<ul>
 								<li class="active"><a href="/">Home</a></li>
 								@if (Auth::guest())
@@ -87,10 +92,9 @@
 					<div class="container">
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
-								<h2>Surfy - Laravel Traffic Exchange</h2>
-								<p>Free traffic exchange service built to help you increase your traffic</p>
+								<p>The most effective strategy to increase website visitors. Use the world's most trusted web traffic exchanger service to improve your rankings.</p>
 								<p><a href="{{ url('/register') }}" class="btn btn-primary btn-lg btn-custom"> Sign Up <b>FREE</b></a></p>
-								<p style="font-size: 16px;">Sign up now and get 100 traffic credits for <b>FREE!</b></p>
+								<p style="font-size: 16px;">Sign up now and receive 100 free traffic credits!</p>
 							</div>
 						</div>
 					</div>
@@ -123,10 +127,10 @@
 
 		<div class="colorlib-services colorlib-bg-white" id="features">
 			<div class="container">
-				<div class="row">
+				<div class="row flex flex-wrap">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
 						<h2>Features</h2>
-						<p>Powerful features to help you rank your website</p>
+						<p>Our tools assist you in attracting high-quality, relevant visitors to your website.</p>
 					</div>
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
@@ -134,19 +138,8 @@
 								<i class="icon-time"></i>
 							</span>
 							<div class="desc">
-								<h3>Instant website validation</h3>
-								<p>Once a website is successfully added it will instantly be validated and receive unlimited traffic.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 text-center animate-box">
-						<div class="services">
-							<span class="icon">
-								<i class="icon-browser"></i>
-							</span>
-							<div class="desc">
-								<h3>Works on all browsers</h3>
-								<p>All you need is a standard web browser with free Alexa extension for Chrome or Firefox.</p>
+								<h3>Validation of websites in real-time</h3>
+								<p>A simple check of your websites, pleasurable web traffic, and ongoing monitoring to remove any blocking websites.</p>
 							</div>
 						</div>
 					</div>
@@ -156,8 +149,8 @@
 								<i class="icon-refresh"></i>
 							</span>
 							<div class="desc">
-								<h3>Surfing on Auto-pilot</h3>
-								<p>Surfing is 100% autopilot. We will never ask you to enter any verification or captcha code to continue surfing.</p>
+								<h3>SIMPLE AND SMART</h3>
+								<p>Web traffic exchanger is an application that is both Windows and Linux compatible. SMART NOTIFICATIONS: You get notified when your points/minutes go below a specific threshold. This is useful for maintaining the consistency of your website hits.</p>
 							</div>
 						</div>
 					</div>
@@ -167,19 +160,8 @@
 								<i class="icon-wallet"></i>
 							</span>
 							<div class="desc">
-								<h3>Earn Credits</h3>
-								<p>Earn credits by using our Auto Surf page, visit other members websites in return your website gets viewed.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 text-center animate-box">
-						<div class="services">
-							<span class="icon">
-								<i class="icon-graph"></i>
-							</span>
-							<div class="desc">
-								<h3>Scalable Results</h3>
-								<p>You could expect to see a marked increase in your website ranking within the first week or less.</p>
+								<h3>Scalable Outcomes</h3>
+								<p>Actual individuals equal real website traffic. Choose how many hits per day you want, and within the first week or less, you will see a significant rise in your website's rating.</p>
 							</div>
 						</div>
 					</div>
@@ -189,8 +171,30 @@
 								<i class="icon-lifebuoy"></i>
 							</span>
 							<div class="desc">
-								<h3>24 HOUR SUPPORT</h3>
-								<p>We have set up a support team that is available 24 hours a day to answer any questions you have about our services.</p>
+								<h3>24/7 assistance</h3>
+								<p>Our purpose is to be ready to assist and fulfill your needs whenever they arise. Our customer service representatives are accessible 24 hours a day to answer any queries you may have about our services.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-graph"></i>
+							</span>
+							<div class="desc">
+								<h3>BOUNCE RATES ARE LOWER</h3>
+								<p>You can set the percentage of visitors who should navigate to another page on your site or click a link on that page. This reduces bounce rates, which are an important factor in determining the quality of traffic in algorithms.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-browser"></i>
+							</span>
+							<div class="desc">
+								<h3>WHITE LABEL TRAFFIC</h3>
+								<p>You are opportune to select where your traffic comes from, Google, Facebook, Instagram, Twitter, or Pinterest. Or perhaps you want to create your own targeted traffic? You make the decision!</p>
 							</div>
 						</div>
 					</div>
