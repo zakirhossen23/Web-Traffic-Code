@@ -90,29 +90,37 @@ class WebsiteController extends Controller
         // Retrieving the request method
         if($request->isMethod('POST') == 1)
         {
-
-           
+            $hasLimit = $request->input('haslimit');
+            $totalhits = $request->input('hits-limit');
+            if (isset($hasLimit) != null) {
+                $hasLimit = 1;
+              }else{
+                $hasLimit = 0;
+                $totalhits = -1;
+              }
             // Validate the request...
             $this->validate($request, [
                 'url' => 'required',
-                'credits' => 'required',
+                'duration' => 'required',
                 'status' => 'required'
             ]);
-            
+           
             // Check if user has enough website slots
-            if (Website::where('user_id', Auth::user()->id)->count() >= 3)
+            if (Website::where('user_id', Auth::user()->id)->count() >= 4)
             {
-                return back()->with('error_msg', 'You don\'t have enough website slots.');
-                return redirect()->back();
+                return redirect()->back()->with('error_msg', 'You don\'t have enough website slots.');             
             }else
             {
                 // Add new website to the database
                 $website = new Website;
                 $website->user_id = Auth::id();
                 $website->url = $request->input('url');
-                $website->credits = $request->input('credits');
+                $website->credits = $request->input('duration')/10;
+                $website->duration = $request->input('duration');
+                $website->haslimit = $hasLimit;
+                $website->totalhits = $totalhits;
                 $website->hits = 0;
-                $website->status = $request->input('status');
+                $website->status = 0;
 
                 // Save posted data
                 $website->save();

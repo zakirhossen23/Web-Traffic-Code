@@ -102,7 +102,7 @@
                                 <input type="range" name="duration" class="form-range" min="10" max="60" value="10" step="10" id="duration" />
                             </div>
                             <div>
-                                <span><span id="range-seconds">10</span> seconds for <span id="range-points">1</span> points</span>
+                                <span><span value="10" id="range-seconds">10</span> seconds for <span id="range-points">1</span> points</span>
                             </div>
 
                             @if ($errors->has('url'))
@@ -116,9 +116,7 @@
                                     <i class="fa fa-unlock"></i> Send as much traffic as possible<br><small>as long as you have points</small></a>
                             </li>
                             <li id="hitslimit-on" class="text-right p-2 limit no-active">
-                                <div class="hitslimit-bg"><i class="fa fa-lock"></i> Stop traffic after reaching a limit<br><small>pauses campaign once reached</small>
-                                    <div class="hits-limit-input" style="display: none;"><br><input type="number" class="form-control" min="0" value="10000" step="1" name="hlr" id="hlr" autocomplete="off"> hits</div>
-                                </div>
+                                <div class="hitslimit-bg"><i class="fa fa-lock"></i> Stop traffic after reaching a limit<br><small>pauses campaign once reached</small></div>
                             </li>
                             <li>
                                 <div id="hits-limit" class="flex items-center h-full gap-2" style="display: none">
@@ -331,6 +329,7 @@
                 console.log(this.value)
                 $('#range-seconds')[0].innerHTML = this.value;
                 $('#range-points')[0].innerHTML = this.value / 10;
+                
 
             }
 

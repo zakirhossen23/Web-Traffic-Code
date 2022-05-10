@@ -12,7 +12,7 @@ class Website extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'url', 'credits', 'hits', 'status'
+        'user_id', 'url','credits', 'duration','haslimit','totalhits', 'hits', 'status'
     ];
 
     public function user()
