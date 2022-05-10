@@ -58,10 +58,10 @@
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="/">Surfy</a></div>
+						<div class="col-md-4">
+							<div id="colorlib-logo"><a href="/">WEB TRAFFIC EXCHANGER</a></div>
 						</div>
-						<div class="col-md-10 text-right menu-1">
+						<div class="col-md-8 text-right menu-1">
                             <ul>
 								<li><a href="/">Home</a></li>
 								@if (Auth::guest())
