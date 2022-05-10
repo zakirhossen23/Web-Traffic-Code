@@ -242,20 +242,38 @@
 			<div class="container">
 				<div class="row mobile-wrap">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>How does it work?</h2>
-						<p>The easiest way to increase your website traffic</p>
+						<h2>How Web Traffic Exchanger Works?</h2>
+						<p>Here's a quick rundown of how web traffic exchanger works.</p>
 					</div>
+
+					<div class="col-md-7 animate-box">
+						<!--<div class="mobile-imgs" style="background-image: url(images/add-website.png);"></div>-->
+						<img src="/images/create-account.png" class="img-responsive mobile-img" />
+					</div>
+					<div class="col-md-5 animate-box">
+						<div class="desc">
+							<h2>Create an account for free.</h2>
+							<div class="features">
+								<span class="icon"><i class="icon-lightbulb"></i></span>
+								<div class="f-desc">
+									<p>To get started, create a free account. It's simple and quick. We only require your selected username, password, and a valid e-mail address. After joining up, you'll be taken to our dashboard, where you view our amazing features!</p>
+								</div>
+							</div>
+							<p><a href="{{ url('/websites') }}" class="btn btn-primary btn-outline with-arrow">Learn More <i class="icon-arrow-right3"></i></a></p>
+						</div>
+					</div>
+				</div>
 					<div class="col-md-7 animate-box">
 						<!--<div class="mobile-imgs" style="background-image: url(images/add-website.png);"></div>-->
 						<img src="/images/add-website.png" class="img-responsive mobile-img" />
 					</div>
 					<div class="col-md-5 animate-box">
 						<div class="desc">
-							<h2>Add your website</h2>
+							<h2>Add your web addresses</h2>
 							<div class="features">
 								<span class="icon"><i class="icon-lightbulb"></i></span>
 								<div class="f-desc">
-									<p>Add your website URL, title and the number of credits you would like to give for each visit. after you specify all the traffic properties you need, your website is instantly put into the system and ready to get traffic.</p>
+									<p>Add the URLs of the web pages you want to receive hits to our network and configure the visit duration, maximum hits per hour, and other traffic attributes you require. And your website will be automatically added to the system and ready to receive traffic.</p>
 								</div>
 							</div>
 							<p><a href="{{ url('/websites') }}" class="btn btn-primary btn-outline with-arrow">Learn More <i class="icon-arrow-right3"></i></a></p>
@@ -269,11 +287,11 @@
 					</div>
 					<div class="col-md-5 col-md-pull-7 animate-box">
 						<div class="desc">
-							<h2>Earn free credits</h2>
+							<h2>Obtain complimentary credits</h2>
 							<div class="features">
 								<span class="icon"><i class="icon-lightbulb"></i></span>
 								<div class="f-desc">
-									<p>Launch Autosurf system and earn credits by using our surf page. Your browser will automatically visit other websites for you and you will earn credits as long as you run it. You can also purchase credits.</p>
+									<p>Download the web traffic exchanger application for your operating system. Open up the exchanger and earn points for each page you visit on our network!</p>
 								</div>
 							</div>
 							<p><a href="{{ url('/surf') }}" class="btn btn-primary btn-outline with-arrow">Learn More <i class="icon-arrow-right3"></i></a></p>
@@ -287,11 +305,11 @@
 					</div>
 					<div class="col-md-5 animate-box">
 						<div class="desc">
-							<h2>Receive traffic</h2>
+							<h2>Relax and enjoy the hits.</h2>
 							<div class="features">
 								<span class="icon"><i class="icon-lightbulb"></i></span>
 								<div class="f-desc">
-									<p>Done! Your website is getting traffic, as long as your website's active and you have credits remaining in your account balance. You can add more websites to maximize your traffic.</p>
+									<p>You will receive automated web visits on your websites from human traffic as long as your website is live and you have points left in your account. Our dashboard allows you to edit and track all of your activities if you ever need to make changes.</p>
 								</div>
 							</div>
 							<p><a href="{{ url('/dashboard') }}" class="btn btn-primary btn-outline with-arrow">Learn More <i class="icon-arrow-right3"></i></a></p>
@@ -306,12 +324,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center text-uppercase colorlib-heading animate-box">
-						<h2>Sign Up For Free Website Traffic Today !</h2>
+						<h3>Where do you need traffic? Let’s gets started</h3>
 					</div>
 				</div>
 				<div class="row animate-box">
 					<div class="col-md-6  text-center col-md-offset-3">
-						<p><a href="{{ url('/register') }}" class="btn btn-primary btn-lg btn-custom text-uppercase">Sign Up For FREE</a></p>
+						<p><a href="{{ url('/register') }}" class="btn btn-primary btn-lg btn-custom text-uppercase">Sign Up Free</a></p>
 					</div>
 				</div>
 			</div>
@@ -321,8 +339,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 colorlib-widget">
-						<h4 class="f-logo" style="font-size:31px;">SURFY</h4>
-						<p>An Awesome Traffic Exchange System</p>
+						<h4 class="f-logo" style="font-size:31px;">WEB TRAFFIC EXCHANGER</h4>
+						<p>Your audience is at the corner. Make sure they find you</p>
 						<p>
 							<ul class="colorlib-social-icons">
 								<li><a href="#"><i class="icon-twitter"></i></a></li>
@@ -358,7 +376,7 @@
 							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
 							<li><a href="tel://1234567920"><i class="icon-phone"></i> + 1235 2355 98</a></li>
 							<li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> info@yoursite.com</a></li>
-							<li><a href="#"><i class="icon-location4"></i> yourwebsite.com</a></li>
+							<li><a href="https://webtraffic.live/"><i class="icon-location4"></i> webtraffic.live</a></li>
 						</ul>
 					</div>
 				</div>

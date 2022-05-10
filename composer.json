@@ -1,7 +1,7 @@
 {
     "name": "blue_coder/surfyapp",
-    "description": "Surfy - Traffic Exchange",
-    "keywords": ["Traffic Exchange", "Autosurf", "Autosurf Traffic Exchange"],
+    "description": "Web Traffic Exchanger",
+    "keywords": ["Web Traffic Exchange", "Autosurf", "Autosurf Traffic Exchange", "Traffic Exchange", "Traffic Exchanger","Exchanger"],
     "license": "Envato",
     "type": "project",
     "require": {

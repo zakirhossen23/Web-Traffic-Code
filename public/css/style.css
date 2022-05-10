@@ -691,6 +691,8 @@ h1, h2, h3, h4, h5, h6, figure {
     margin-bottom: 30px; }
     #colorlib-counter .colorlib-heading h2 {
       color: #fff; }
+    #colorlib-counter .colorlib-heading h3 {
+      color: #fff; }
     #colorlib-counter .colorlib-heading p {
       font-size: 22px;
       color: rgba(255, 255, 255, 0.8); }
@@ -842,6 +844,8 @@ article {
   .colorlib-subscribe .colorlib-heading {
     margin-bottom: 30px; }
     .colorlib-subscribe .colorlib-heading h2 {
+      color: #fff; }
+    .colorlib-subscribe .colorlib-heading h3 {
       color: #fff; }
     .colorlib-subscribe .colorlib-heading p {
       font-size: 20px;
@@ -1069,6 +1073,14 @@ input[type="text"] {
     @media screen and (max-width: 768px) {
       .colorlib-heading h2 {
         font-size: 30px; } }
+        .colorlib-heading h3 {
+          font-size: 40px;
+          font-weight: 300;
+          margin-bottom: 30px;
+          position: relative; }
+          @media screen and (max-width: 768px) {
+            .colorlib-heading h3 {
+              font-size: 25px; } }
 
 #colorlib-footer {
   background: #303133;

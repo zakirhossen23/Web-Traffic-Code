@@ -23,7 +23,7 @@ class isBanned
             {
                 // Destroy data associated with the user session from persistent storage.
                 auth()->logout();
-                return redirect()->back()->with('message', 'Your Surfy account has been banned for violating our Terms and Conditions');
+                return redirect()->back()->with('message', 'Your Web Traffic Exchanger account has been banned for violating our Terms and Conditions');
             }
         }
 

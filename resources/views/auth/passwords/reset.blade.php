@@ -205,8 +205,7 @@
 							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
 							<li><a href="tel://1234567920"><i class="icon-phone"></i> + 1235 2355 98</a></li>
 							<li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> info@yoursite.com</a></li>
-							<li><a href="#"><i class="icon-location4"></i> yourwebsite.com</a></li>
-						</ul>
+							<li><a href="https://webtraffic.live/"><i class="icon-location4"></i> webtraffic.live</a></li>						</ul>
 					</div>
 				</div>
 			</div>
