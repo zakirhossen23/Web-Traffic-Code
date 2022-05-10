@@ -21,6 +21,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
 	
@@ -80,13 +81,8 @@
 			</div>
 		</nav>
 
-		<section id="home" class="video-hero" data-section="home">
+		<section id="home" class="video-hero" style="height:100px;" data-section="home">
 		<div class="overlay"></div>
-			<div class="display-t display-t2 text-center">
-				<div class="display-tc display-tc2">
-	
-				</div>
-			</div>
 		</section>
 
 		<div id="colorlib-contact">
