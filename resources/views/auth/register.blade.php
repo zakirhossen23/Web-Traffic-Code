@@ -84,14 +84,7 @@
 		<div class="overlay"></div>
 			<div class="display-t display-t2 text-center">
 				<div class="display-tc display-tc2">
-					<div class="container">
-						<div class="col-md-12 col-md-offset-0">
-							<div class="animate-box">
-								<h2>Register</h2>
-								<p class="breadcrumbs"><span><a href="/">Home</a></span> <span>Register</span></p>
-							</div>
-						</div>
-					</div>
+	
 				</div>
 			</div>
 		</section>

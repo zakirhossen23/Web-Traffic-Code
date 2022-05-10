@@ -86,16 +86,19 @@ class WebsiteController extends Controller
      */
     public function addWebsite(Request $request)
     {
+        
         // Retrieving the request method
-        if($request->isMethod('POST'))
+        if($request->isMethod('POST') == 1)
         {
+
+           
             // Validate the request...
             $this->validate($request, [
-                'url' => 'required|url',
+                'url' => 'required',
                 'credits' => 'required',
                 'status' => 'required'
             ]);
-
+            
             // Check if user has enough website slots
             if (Website::where('user_id', Auth::user()->id)->count() >= 3)
             {
