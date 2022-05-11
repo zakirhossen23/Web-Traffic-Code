@@ -25,6 +25,7 @@
 											<th scope="col" style="text-align: center;">Username</th>
                                             <th scope="col" style="text-align: center;">Email</th>
 											<th scope="col" style="text-align: center;">Credits</th>
+											<th scope="col" style="text-align: center;">Web Slots</th>
 											<th scope="col" style="text-align: center;">Type</th>
 											<th scope="col" style="text-align: center;">Actions</th>
                                         </tr>
@@ -36,6 +37,7 @@
                                             <td>{{$data->username}}</td>
                                             <td>{{$data->email}}</td>
 										    <td>{{$data->credits}}</td>
+										    <td>{{$data->slots}}</td>
 										    @if ($data->userlevel == 1)
 												<td> <b>Admin</b></td>
 											@else

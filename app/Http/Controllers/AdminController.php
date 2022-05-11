@@ -233,6 +233,7 @@ class AdminController extends Controller
             $user->username = $request->username;
             $user->email = $request->email;
             $user->credits = $request->credits;
+            $user->slots = $request->slots;
             if($request->password != "") {
                 $user->password = Hash::make($request->password);
             }
