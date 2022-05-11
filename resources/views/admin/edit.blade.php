@@ -76,7 +76,7 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('credits') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('slots') ? ' has-error' : '' }}">
                             <label for="slots" class="col-md-4 control-label">Web Slots</label>
 
                             <div class="col-md-12">

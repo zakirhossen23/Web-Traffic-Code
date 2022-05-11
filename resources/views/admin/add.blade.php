@@ -75,6 +75,21 @@
                                 </div>
                             </div>
 
+                            
+                            <div class="form-group{{ $errors->has('slots') ? ' has-error' : '' }}">
+                                <label for="slots" class="col-md-4 control-label">Web Slots</label>
+
+                                <div class="col-md-6">
+                                    <input id="slots" type="number" value=3 class="form-control" name="slots">
+
+                                    @if ($errors->has('slots'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('slots') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Password</label>
 
