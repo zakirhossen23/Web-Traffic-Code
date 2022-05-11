@@ -32,6 +32,7 @@ $(document).ready(function () {
                 success: function(response) {
                     var data = response;
                     var timer = data.time;
+                    var points = data.points;
                     
                     myWindow = window.open(data.website.url, "Traffic Exchange", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=800,height=600, top=100, left=400,"); 
 
@@ -56,7 +57,7 @@ $(document).ready(function () {
                                 success: function(response) {
                                     var element = document.getElementById("credits_earned")                                    
                                     $parsed = Number(element.textContent.replace(/[^\d]/g,''));
-                                    element.textContent = $parsed + 1
+                                    element.textContent = $parsed + points
                                     openWin();
                                 }
                             });

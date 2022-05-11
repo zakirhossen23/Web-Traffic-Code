@@ -46,14 +46,14 @@ class SurfController extends Controller
                 ->select('websites.*')
                 ->leftJoin('users', 'websites.user_id', '=', 'users.id')
                 ->where([
-                    //['users.credits', '>=', 'websites.credits'],
+                    ['users.credits', '>=', 'websites.credits'],
                     ['websites.status', '=', '0'],
                     ['websites.user_id', '!=', Auth::user()->id],
                 ])
                 ->inRandomOrder()
                 ->first();
             $site = Setting::first();
-            return ['website' => $website, 'time' => $site->surf_time];
+            return ['website' => $website, 'time' => $website->duration, 'points' => $website->credits];
             
         }elseif($request->isMethod('POST') && $request->has('complete')) {
 
