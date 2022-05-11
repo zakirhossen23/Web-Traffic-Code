@@ -78,7 +78,7 @@ class BootstrapThreePresenter implements PresenterContract
     {
         $rel = is_null($rel) ? '' : ' rel="'.$rel.'"';
 
-        return '<li class="page-item"><a class="page-link" href="'.htmlentities($url).'"'.$rel.'>'.$page.'</a></li>';
+        return '<li><a href="'.htmlentities($url).'"'.$rel.'>'.$page.'</a></li>';
     }
 
     /**
@@ -89,7 +89,7 @@ class BootstrapThreePresenter implements PresenterContract
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<li class="page-item disabled"><a class="page-link" href="#"><span>'.$text.'</span></a></li>';
+        return '<li class="disabled"><span>'.$text.'</span></li>';
     }
 
     /**
@@ -100,7 +100,7 @@ class BootstrapThreePresenter implements PresenterContract
      */
     protected function getActivePageWrapper($text)
     {
-        return '<li class="page-item active"><a class="page-link" href="#"><span>'.$text.'</span></a></li>';
+        return '<li class="active"><span>'.$text.'</span></li>';
     }
 
     /**

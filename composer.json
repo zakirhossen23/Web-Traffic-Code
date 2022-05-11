@@ -9,7 +9,9 @@
         "laravel/framework": "5.2.*",
         "paypal/rest-api-sdk-php": "^1.14",
         "jackiedo/dotenv-editor": "^1.1",
-        "anhskohbo/no-captcha": "^3.2"
+        "anhskohbo/no-captcha": "^3.2",
+        "kylekatarnls/update-helper": "^1.2.1",
+        "flutterwavedev/flutterwave-v3": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -51,6 +53,9 @@
         ]
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
