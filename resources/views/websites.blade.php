@@ -90,8 +90,27 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+
                             <label for="url" class="col-form-label">Website address (URL)</label>
-                            <input type="url" class="form-control" id="url" name="url" value="{{ old('url') }}" placeholder="Enter website address (e.g. http://mywebsite.com)">
+                            <div>
+                                <div id="url_place">
+                                    <div class="flex gap-3">
+                                        <input type="url" class="form-control" id="url" name="url[0]" value="{{ old('url') }}" placeholder="Enter website address (e.g. http://mywebsite.com)">
+                                        <button id="delete_Website" class="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5">
+                                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="button" id="add_website" class="h-10 mt-2 mb-1 rounded-md border-solid border bg-gray-100 flex py-2 px-4 items-center text-gray-700 hover:bg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5 ">
+                                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <p class="ml-2 mt-3">Website</p>
+                                </button>
+                            </div>
+
                             @if ($errors->has('url'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('url') }}</strong>
@@ -206,7 +225,7 @@
                             </li>
                             <li>
                                 <div id="hits-limit" class="flex items-center h-full gap-2" style="display: none">
-                                    <input type="checkbox"  name="haslimit" style="display: none;"/>
+                                    <input type="checkbox" name="haslimit" style="display: none;" />
                                     <input type="number" value="1000" name="hits-limit" class="hits-limit rounded border-solid border py-1 pr-1 pl-2 w-32" value="0" autocomplete="off" style="border-color: gray;">
                                     <span>hits</span>
                                 </div>
@@ -323,11 +342,11 @@
                         $("input[name=duration]")[1].value = (data.website.duration);
                         $("span[id='range-seconds']")[1].innerHTML = (data.website.duration);
                         $("span[id='range-points']")[1].innerHTML = (data.website.duration / 10);
-                        
-                        if (data.website.haslimit == 1){
+
+                        if (data.website.haslimit == 1) {
                             click_Limit_On(1)
-                            $("[name='hits-limit']")[1].value =(data.website.totalhits)
-                        }else{
+                            $("[name='hits-limit']")[1].value = (data.website.totalhits)
+                        } else {
                             click_Limit_OFF(1)
                         }
                         $('#site_status').val(data.website.status);
@@ -400,6 +419,58 @@
                     click_Limit_OFF(i)
                 }
             }
+
+            //----- Add website-----//
+            function createElement(str) {
+                var div = document.createElement('div');
+                div.innerHTML = str;
+                return div.childNodes;
+            }
+
+            function Click_Another_Website_Box(i) {
+                counted_child = $("[id='url_place']")[i].childElementCount
+                var div = document.createElement('div');
+
+                var mi = document.createElement("input");
+                mi.setAttribute('type', 'url');
+                mi.setAttribute('class', 'form-control');
+                mi.setAttribute('id', 'url');
+                mi.setAttribute('name', 'url[' + counted_child + ']');
+                mi.setAttribute('placeholder', 'Enter website address (e.g. http://mywebsite.com)');
+
+                div.setAttribute("class","flex gap-3");
+                div.innerHTML = mi.outerHTML + '<button type="button" id="delete_Website" class="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg></button>';
+
+                $("[id='url_place']")[i].appendChild(div)
+                Add_Event_Delete_Website()
+            }
+
+            for (let i = 0; i < $("[id='add_website']").length; i++) {
+                $("[id='add_website']")[i].onclick = function() {
+                    Click_Another_Website_Box(i)
+                }
+            }
+
+
+            //----- Delete website-----//
+            function Click_Delete_Website(i) {
+                var Url_Place = $("[id='delete_Website']")[i].parentElement.parentElement;
+                $("[id='delete_Website']")[i].parentElement.remove()
+                for (let i = 0; i < Url_Place.childElementCount; i++) {
+                    Url_Place.children[i].children[0].setAttribute("name","url["+i+"]")
+                   
+                }
+            }
+
+
+            function Add_Event_Delete_Website() {
+                for (let i = 0; i < $("[id='delete_Website']").length; i++) {
+                    $("[id='delete_Website']")[i].onclick = function() {
+                        Click_Delete_Website(i)
+                    }
+                }
+            }
+            Add_Event_Delete_Website();
 
         });
     </script>

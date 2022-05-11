@@ -20,7 +20,7 @@ class WebsiteController extends Controller
         return view('websites', compact('websites'));
     }
 
-     /**
+    /**
      * Get the site info for given ID.
      *
      * @param  int  $site_id
@@ -57,26 +57,25 @@ class WebsiteController extends Controller
     public function editWebsite(Request $request, $site_id)
     {
         // Retrieving the request method
-        if($request->isMethod('POST'))
-        {
+        if ($request->isMethod('POST')) {
             $hasLimit = $request->input('haslimit');
             $totalhits = $request->input('hitslimit');
             if ($hasLimit == "true") {
                 $hasLimit = 1;
-            }else{
+            } else {
                 $hasLimit = 0;
                 $totalhits = -1;
             }
-            
+
             $this->validate($request, [
                 'url' => 'required',
                 'duration' => 'required',
                 'status' => 'required'
             ]);
-            
+
             $website = Website::findOrFail($site_id);
             $website->url = $request->input('url');
-            $website->credits = $request->input('duration')/10;
+            $website->credits = $request->input('duration') / 10;
             $website->duration = $request->input('duration');
             $website->haslimit = $hasLimit;
             $website->totalhits = $totalhits;
@@ -86,7 +85,7 @@ class WebsiteController extends Controller
             $website->save();
 
             // Redirect to Websites page
-            return redirect()->back()->with('success_msg','Your website updated successfully.');
+            return redirect()->back()->with('success_msg', 'Your website updated successfully.');
         }
     }
 
@@ -98,49 +97,51 @@ class WebsiteController extends Controller
      */
     public function addWebsite(Request $request)
     {
-        
+
         // Retrieving the request method
-        if($request->isMethod('POST') == 1)
-        {
+        if ($request->isMethod('POST') == 1) {
             $hasLimit = $request->input('haslimit');
             $totalhits = $request->input('hits-limit');
+            $urls = $request->input('url');
+
             if (isset($hasLimit) != null) {
                 $hasLimit = 1;
-              }else{
+            } else {
                 $hasLimit = 0;
                 $totalhits = -1;
-              }
+            }
             // Validate the request...
             $this->validate($request, [
                 'url' => 'required',
                 'duration' => 'required',
                 'status' => 'required'
             ]);
-           
-            // Check if user has enough website slots
-            if (Website::where('user_id', Auth::user()->id)->count() >= Auth::user()->slots)
-            {
-                return redirect()->back()->with('error_msg', 'You don\'t have enough website slots.');             
-            }else
-            {
-                // Add new website to the database
-                $website = new Website;
-                $website->user_id = Auth::id();
-                $website->url = $request->input('url');
-                $website->credits = $request->input('duration')/10;
-                $website->duration = $request->input('duration');
-                $website->haslimit = $hasLimit;
-                $website->totalhits = $totalhits;
-                $website->hits = 0;
-                $website->status = 0;
 
-                // Save posted data
-                $website->save();
+            // Check if user has enough website slots
+            if (Website::where('user_id', Auth::user()->id)->count() >= Auth::user()->slots) {
+                return redirect()->back()->with('error_msg', 'You don\'t have enough website slots.');
+            } else {
+                for ($i = 0; $i < count($urls); $i++) {
+
+                    // Add new website to the database
+                    $website = new Website;
+                    $website->user_id = Auth::id();
+                    $website->url = $urls[$i];
+                    $website->credits = $request->input('duration') / 10;
+                    $website->duration = $request->input('duration');
+                    $website->haslimit = $hasLimit;
+                    $website->totalhits = $totalhits;
+                    $website->hits = 0;
+                    $website->status = 0;
+
+                    // Save posted data
+                    $website->save();
+                }
 
                 // Redirect to Websites page
-                return redirect()->back()->with('success_msg','Your website has been added successfully.');
+                return redirect()->back()->with('success_msg', 'Your website has been added successfully.');
             }
         }
         return view('add');
-    }    
+    }
 }
