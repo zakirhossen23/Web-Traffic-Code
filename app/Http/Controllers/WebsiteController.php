@@ -59,15 +59,27 @@ class WebsiteController extends Controller
         // Retrieving the request method
         if($request->isMethod('POST'))
         {
+            $hasLimit = $request->input('haslimit');
+            $totalhits = $request->input('hitslimit');
+            if ($hasLimit == "true") {
+                $hasLimit = 1;
+            }else{
+                $hasLimit = 0;
+                $totalhits = -1;
+            }
+            
             $this->validate($request, [
-                'url' => 'required|url',
-                'credits' => 'required',
+                'url' => 'required',
+                'duration' => 'required',
                 'status' => 'required'
             ]);
             
             $website = Website::findOrFail($site_id);
             $website->url = $request->input('url');
-            $website->credits = $request->input('credits');
+            $website->credits = $request->input('duration')/10;
+            $website->duration = $request->input('duration');
+            $website->haslimit = $hasLimit;
+            $website->totalhits = $totalhits;
             $website->status = $request->input('status');
 
             // Save the modifications
@@ -106,7 +118,7 @@ class WebsiteController extends Controller
             ]);
            
             // Check if user has enough website slots
-            if (Website::where('user_id', Auth::user()->id)->count() >= 4)
+            if (Website::where('user_id', Auth::user()->id)->count() >= Auth::user()->slots)
             {
                 return redirect()->back()->with('error_msg', 'You don\'t have enough website slots.');             
             }else

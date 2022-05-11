@@ -46,7 +46,9 @@
                                         <tr id="website{{$data->id}}" class="active">
                                             <td style="text-align: center;"><a href="{{$data->url}}" target="_blank">{{$data->url}}</a></td>
                                             <td style="text-align: center;">{{$data->duration}}s</td>
-                                            <td style="text-align: center;"><? if ($data->totalhits == -1){ ?>Until i have credits<? }else{ echo $data->totalhits;}?></td>
+                                            <td style="text-align: center;"><? if ($data->totalhits == -1) { ?>Until i have credits<? } else {
+                                                                                                                                    echo $data->totalhits;
+                                                                                                                                } ?></td>
                                             <td style="text-align: center;">{{$data->hits}}</td>
                                             <td style="text-align: center;"><span class="badge badge-{{$data->status == '0'  ? 'success' : 'info'}}">{{$data->status == '0'  ? 'Active' : 'Paused'}}</span>
                                             </td>
@@ -159,7 +161,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel"><i class="fas fa-link"></i> Edit Website @</h5>
+                    <h5 class="modal-title" id="ModalLabel"><i class="fas fa-link"></i> Edit Website </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -177,15 +179,41 @@
                             </span>
                             @endif
                         </div>
-                        <div class="form-group{{ $errors->has('credits') ? ' has-error' : '' }}">
-                            <label for="credits" class="col-form-label">Credits</label>
-                            <input type="text" class="form-control" id="site_credits" name="credits" value="" placeholder="credits">
-                            @if ($errors->has('credits'))
+                        <div class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
+                            <label for="url" class="col-form-label">Visit Duration in seconds</label>
+                            <p>Select the amount of seconds you want your visitor to stay on this page. Each point is
+                                worth 10 seconds!</p>
+                            <div class="range">
+                                <input type="range" name="duration" class="form-range" min="10" max="60" step="10" id="duration" />
+                            </div>
+                            <div>
+                                <span><span id="range-seconds">10</span> seconds for <span id="range-points">1</span> points</span>
+                            </div>
+
+                            @if ($errors->has('duration'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('credits') }}</strong>
+                                <strong>{{ $errors->first('duration') }}</strong>
                             </span>
                             @endif
                         </div>
+
+                        <ul class="nav nav-pills pl-2 gap-6">
+                            <li class="text-right limit active p-2" id="hitslimit-off"><a>
+                                    <i class="fa fa-unlock"></i> Send as much traffic as possible<br><small>as long as you have points</small></a>
+                            </li>
+                            <li id="hitslimit-on" class="text-right p-2 limit no-active">
+                                <div class="hitslimit-bg"><i class="fa fa-lock"></i> Stop traffic after reaching a limit<br><small>pauses campaign once reached</small></div>
+                            </li>
+                            <li>
+                                <div id="hits-limit" class="flex items-center h-full gap-2" style="display: none">
+                                    <input type="checkbox"  name="haslimit" style="display: none;"/>
+                                    <input type="number" value="1000" name="hits-limit" class="hits-limit rounded border-solid border py-1 pr-1 pl-2 w-32" value="0" autocomplete="off" style="border-color: gray;">
+                                    <span>hits</span>
+                                </div>
+
+                            </li>
+                        </ul>
+
                         <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
                             <label for="SelectStatus">Status</label>
                             <select class="form-control" id="site_status" name="status">
@@ -292,7 +320,16 @@
                         console.log(data);
                         $('#site_id').val(data.website.id);
                         $('#site_url').val(data.website.url);
-                        $('#site_credits').val(data.website.credits);
+                        $("input[name=duration]")[1].value = (data.website.duration);
+                        $("span[id='range-seconds']")[1].innerHTML = (data.website.duration);
+                        $("span[id='range-points']")[1].innerHTML = (data.website.duration / 10);
+                        
+                        if (data.website.haslimit == 1){
+                            click_Limit_On(1)
+                            $("[name='hits-limit']")[1].value =(data.website.totalhits)
+                        }else{
+                            click_Limit_OFF(1)
+                        }
                         $('#site_status').val(data.website.status);
                     },
                     error: function(data) {
@@ -311,7 +348,9 @@
                     //dataType: "json",
                     data: {
                         url: $('#site_url').val(),
-                        credits: $('#site_credits').val(),
+                        duration: $('[id="duration"]')[1].value,
+                        haslimit: $('[name="haslimit"]')[1].checked,
+                        'hitslimit': $('[name="hits-limit"]')[1].value,
                         status: $('#site_status').val(),
                         "_token": "{{ csrf_token() }}"
                     },
@@ -327,28 +366,39 @@
             });
 
             //----- Duration Slider -----//
-            $("#duration")[0].onchange = function() {
-                console.log(this.value)
-                $('#range-seconds')[0].innerHTML = this.value;
-                $('#range-points')[0].innerHTML = this.value / 10;
-                
-
+            for (let i = 0; i < $("input[name=duration]").length; i++) {
+                $("input[name=duration]")[i].addEventListener("input", function() {
+                    $("span[id='range-seconds']")[i].innerHTML = this.value;
+                    $("span[id='range-points']")[i].innerHTML = this.value / 10;
+                });
             }
+
 
             //----- Stop traffic after reaching a limit pauses campaign once reached -----//
-            $("#hitslimit-on")[0].onclick = function() {
-                this.classList.replace("no-active", "active")
-                $("#hitslimit-off")[0].classList.replace("active", "no-active")
-                $("#hits-limit")[0].style.display = "flex"
-                $("input[name=haslimit]")[0].checked = true
+            function click_Limit_On(i) {
+                $("[id='hitslimit-on']")[i].classList.replace("no-active", "active")
+                $("[id='hitslimit-off']")[i].classList.replace("active", "no-active")
+                $("[id='hits-limit']")[i].style.display = "flex"
+                $("[name=haslimit]")[i].checked = true
+            }
+            for (let i = 0; i < $("[id='hitslimit-on']").length; i++) {
+                $("[id='hitslimit-on']")[i].onclick = function() {
+                    click_Limit_On(i)
+                }
             }
 
+
             //----- Send as much traffic as possible as long as you have points-----//
-            $("#hitslimit-off")[0].onclick = function() {
-                this.classList.replace("no-active", "active")
-                $("#hitslimit-on")[0].classList.replace("active", "no-active")
-                $("#hits-limit")[0].style.display = "none"
-                $("input[name=haslimit]")[0].checked = false
+            function click_Limit_OFF(i) {
+                $("[id='hitslimit-off']")[i].classList.replace("no-active", "active")
+                $("[id='hitslimit-on']")[i].classList.replace("active", "no-active")
+                $("[id='hits-limit']")[i].style.display = "none"
+                $("[name=haslimit]")[i].checked = false
+            }
+            for (let i = 0; i < $("[id='hitslimit-off']").length; i++) {
+                $("[id='hitslimit-off']")[i].onclick = function() {
+                    click_Limit_OFF(i)
+                }
             }
 
         });
