@@ -73,6 +73,10 @@ class ComposerStaticInitd65ab065ddc39ced169445329ac4f2f6
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
         ),
+        'K' => 
+        array (
+            'KingFlamez\\Rave\\' => 16,
+        ),
         'J' => 
         array (
             'JakubOnderka\\PhpConsoleColor\\' => 29,
@@ -227,6 +231,10 @@ class ComposerStaticInitd65ab065ddc39ced169445329ac4f2f6
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'KingFlamez\\Rave\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kingflamez/laravelrave/src',
         ),
         'JakubOnderka\\PhpConsoleColor\\' => 
         array (
@@ -414,6 +422,7 @@ class ComposerStaticInitd65ab065ddc39ced169445329ac4f2f6
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'KingFlamez\\Rave\\Rave' => __DIR__ . '/..' . '/kingflamez/laravelrave/src/Rave.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',

@@ -26,7 +26,7 @@ Route::get('/ref/{id}', 'RefController@index');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', 'HomeController@index');
-    
+
     Route::get('/settings/account', 'UserController@account');
     Route::post('/settings/account', 'UserController@updateAccount');
 
@@ -41,24 +41,28 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/websites/edit/{site_id?}', 'WebsiteController@getSiteInfo');
     Route::post('/websites/edit/{site_id?}', 'WebsiteController@editWebsite');
-    
+
     Route::get('/websites/delete/{site_id?}', 'WebsiteController@getSiteInfo');
     Route::post('/websites/delete/{site_id?}', 'WebsiteController@delWebsite');
 
     Route::get('/surf', 'SurfController@surf');
+
 
     Route::get('/session', 'SurfController@session');
     Route::post('/session', 'SurfController@session');
 
     Route::get('/referrals', 'HomeController@referrals');
 
-    Route::get('/buy/credits', 'HomeController@buycredits');
+    Route::get('/buy/credits', 'HomeController@buycredits')->name('credits');
 
     // route for processing payment
-    Route::post('paypal', 'PaymentController@PostPayment')->name('paypal');
-
-    // route for check status of the payment
-    Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
+    Route::get('/paymen', function () {
+        return view('payment');
+    })->name('paymen');
+    Route::post('/rave/pay', 'FlutterwaveController@initialize' )->name('rave-pay');
+    // The callback url after a payment
+    Route::get('/rave/callback', 'FlutterwaveController@callback')->name('rave-callback');
+    
 
     Route::get('/contact', 'HomeController@contact');
     Route::post('/contact', 'HomeController@postContact');
@@ -66,17 +70,17 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 /* Admin routes */
-Route::group(['prefix' => 'admin' , 'middleware' => 'is_admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
 
     Route::get('/', 'AdminController@index');
-    
+
     Route::get('/users', 'AdminController@users');
     Route::get('/users/add', 'AdminController@adduser');
     Route::post('/users/add', 'AdminController@adduser');
     Route::get('/users/edit/{id}', 'AdminController@editUser');
     Route::post('/users/edit/{id}', 'AdminController@editUser');
     Route::get('/users/delete/{id}', 'AdminController@delUser');
-    
+
     Route::get('/credits', 'AdminController@credits');
     Route::get('/credits/addpack', 'AdminController@addCredits');
     Route::post('/credits/addpack', 'AdminController@addCredits');
@@ -86,13 +90,13 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'is_admin'], function () {
     Route::get('/websites/edit/{id}', 'AdminController@editSite');
     Route::post('/websites/edit/{id}', 'AdminController@editSite');
     Route::get('/websites/delete/{id}', 'AdminController@delSite');
-    
+
     Route::get('/transfers', 'AdminController@transfers');
 
     Route::get('/sales', 'AdminController@sales');
-    
+
     Route::get('/settings', 'AdminController@settings');
     Route::post('/settings', 'AdminController@postSettings');
 
     //Route::match(['get', 'post'], '/', function () { });
-});  
+});

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '39dc21b7f260f151f088d67f5e85744ff80489e3',
+        'reference' => 'ea813c5ed33d41d6bc72d3a3d0cde8c93ceeeea7',
         'name' => 'blue_coder/surfyapp',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '39dc21b7f260f151f088d67f5e85744ff80489e3',
+            'reference' => 'ea813c5ed33d41d6bc72d3a3d0cde8c93ceeeea7',
             'dev_requirement' => false,
         ),
         'classpreloader/classpreloader' => array(
@@ -332,6 +332,15 @@
             'install_path' => __DIR__ . '/../jeremeamia/superclosure',
             'aliases' => array(),
             'reference' => '5707d5821b30b9a07acfb4d76949784aaa0e9ce9',
+            'dev_requirement' => false,
+        ),
+        'kingflamez/laravelrave' => array(
+            'pretty_version' => 'v4.2.0',
+            'version' => '4.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kingflamez/laravelrave',
+            'aliases' => array(),
+            'reference' => '02ccc18e5f03fb25a12f898ddd180d88d0ed13d9',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(

@@ -102,8 +102,9 @@ class HomeController extends Controller
      */
     public function buycredits()
     {
+        $users = User::find( Auth::user()->id);
         $credits = Credit::all();
-        return view('credits', compact('credits'));
+        return view('credits', compact('credits'),compact('users'));
     }
 
      /**

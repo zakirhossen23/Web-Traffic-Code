@@ -11,7 +11,8 @@
         "jackiedo/dotenv-editor": "^1.1",
         "anhskohbo/no-captcha": "^3.2",
         "kylekatarnls/update-helper": "^1.2.1",
-        "flutterwavedev/flutterwave-v3": "^1.0"
+        "flutterwavedev/flutterwave-v3": "^1.0",
+        "kingflamez/laravelrave": "^4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

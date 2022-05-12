@@ -34,6 +34,7 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'KingFlamez\\Rave\\' => array($vendorDir . '/kingflamez/laravelrave/src'),
     'JakubOnderka\\PhpConsoleColor\\' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
     'Jackiedo\\DotenvEditor\\' => array($vendorDir . '/jackiedo/dotenv-editor/src/Jackiedo/DotenvEditor'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
