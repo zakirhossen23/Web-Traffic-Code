@@ -25,6 +25,7 @@
                                     <td class="text-center">
                                         <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form" action="{{ route('rave-pay') }}">
                                             {{ csrf_field() }}
+                                            <input type="hidden" name="userid" value="{{$users->id}}">
                                             <input type="hidden" name="email" value="{{$users->email}}">
                                             <input type="hidden" name="item_name" value="{{$data->name}}">
                                             <input type="hidden" name="item_number" value="{{$data->credits}}">
