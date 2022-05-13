@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\UserActivity', 'user_id');
     }
+ 
+    public function paymenthistory()
+    {
+        return $this->hasMany('App\PaymentHistory', 'user_id');
+    }
 }
