@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->float('credits')->default(75);
+            $table->integer('slots')->default(3);
             $table->string('refid')->nullable();
             $table->string('banned')->default(0);
             $table->tinyInteger('userlevel')->default(0);

@@ -17,7 +17,10 @@ class Websites extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('url');
-            $table->float('credits');
+            $table->integer('credits');
+            $table->integer('duration');
+            $table->integer('haslimit');
+            $table->integer('totalhits');
             $table->integer('hits')->default('0');
             $table->integer('status')->default('0');
             $table->timestamps();
