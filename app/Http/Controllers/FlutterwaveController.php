@@ -120,7 +120,7 @@ class FlutterwaveController extends Controller
                 $history->credits = intval($credits);
                 $history->price = $pay;
                 $history->save();
-                return response()->json(json_encode("done"));
+                return response()->json($history);
                 User::where('id','=' ,Auth::user()->id)->increment('credits', $credits);
 
                 return redirect()->route('credits')->with('success_msg', 'Transaction success! Added '. $credits . " credits to your account.");

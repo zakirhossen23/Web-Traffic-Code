@@ -9,7 +9,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'CreateCreditsTable' => $baseDir . '/database/migrations/2020_07_08_145808_create_credits_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreatePaymentHistoriesTable' => $baseDir . '/database/migrations/2022_05_13_102712_create_payment_histories_table.php',
+    'CreatePaymentHistoryTable' => $baseDir . '/database/migrations/2022_05_13_123401_create_payment_history_table.php',
     'CreateSettingsTable' => $baseDir . '/database/migrations/2020_04_01_121628_create_settings_table.php',
     'CreateSurfedTodayTable' => $baseDir . '/database/migrations/2020_04_01_184614_create_surfed_today_table.php',
     'CreateUserActivitiesTable' => $baseDir . '/database/migrations/2020_04_22_195456_create_user_activities_table.php',

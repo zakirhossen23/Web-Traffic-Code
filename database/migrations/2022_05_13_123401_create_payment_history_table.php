@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaymentHistoriesTable extends Migration
+class CreatePaymentHistoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreatePaymentHistoriesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('payment_history');
         Schema::create('payment_history', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('credits');
-            $table->integer('price');
+            $table->integer('credits')->default('0');
+            $table->integer('price')->default('0');
+            $table->timestamp('date');
         });
     }
 
@@ -28,6 +30,6 @@ class CreatePaymentHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('payment_history');
+        Schema::dropIfExists('payment_history');
     }
 }
