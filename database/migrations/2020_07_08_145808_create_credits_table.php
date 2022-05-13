@@ -13,6 +13,7 @@ class CreateCreditsTable extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('credits')) return; 
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');

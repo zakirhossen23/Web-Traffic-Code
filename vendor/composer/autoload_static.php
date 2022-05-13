@@ -345,7 +345,7 @@ class ComposerStaticInitd65ab065ddc39ced169445329ac4f2f6
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'CreateCreditsTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_08_145808_create_credits_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-        'CreatePaymentHistoryTable' => __DIR__ . '/../..' . '/database/migrations/2022_05_13_123401_create_payment_history_table.php',
+        'CreatePaymentHistoriesTable' => __DIR__ . '/../..' . '/database/migrations/2022_05_13_211403_create_payment_histories_table.php',
         'CreateSettingsTable' => __DIR__ . '/../..' . '/database/migrations/2020_04_01_121628_create_settings_table.php',
         'CreateSurfedTodayTable' => __DIR__ . '/../..' . '/database/migrations/2020_04_01_184614_create_surfed_today_table.php',
         'CreateUserActivitiesTable' => __DIR__ . '/../..' . '/database/migrations/2020_04_22_195456_create_user_activities_table.php',

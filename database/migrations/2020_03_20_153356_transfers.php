@@ -12,6 +12,7 @@ class Transfers extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('transfers')) return; 
         Schema::create('transfers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sender');

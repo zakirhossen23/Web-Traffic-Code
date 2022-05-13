@@ -12,6 +12,7 @@ class CreateUserActivitiesTable extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('user_activities')) return; 
         Schema::create('user_activities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();

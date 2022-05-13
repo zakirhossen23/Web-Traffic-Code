@@ -12,6 +12,7 @@ class Websites extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('websites')) return; 
         Schema::create('websites', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();

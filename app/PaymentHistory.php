@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PaymentHistory extends Model
 {
-    /**
+   /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -15,8 +15,4 @@ class PaymentHistory extends Model
         'user_id', 'credits', 'price','date'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
 }
