@@ -20,26 +20,39 @@
                     <div class="card mb-3">
                         <h5 class="card-header">Payment history</h5>
                         <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Credits</th>
-                                        <th>Price</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td colspan="10" style="text-align: center;">None</td>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Credits</th>
+                                            <th>Price</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($payment_history as $data)
+                                        <?php
+                                        $date =  DateTime::createFromFormat('Y-m-d h:i:s', $data->date)->format('Y-m-d');
+                                        ?>
+                                        <tr id="history{{$data->id}}" class="active">
+                                            <td style="text-align: center;">{{$data->credits}} credits</td>
+                                            <td style="text-align: center;">${{$data->price}}</td>
+                                            <td style="text-align: center;">{{$date}}</td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="10" style="text-align: center;">No matching records found.</td>
+                                        </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+</div>
+</div>
+</main>
 @endsection

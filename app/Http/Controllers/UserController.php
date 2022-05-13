@@ -64,13 +64,5 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Show the application billing.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function billing()
-    {
-        return view('billing');
-    }
+   
 }

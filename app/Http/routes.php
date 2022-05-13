@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/settings/account', 'UserController@account');
     Route::post('/settings/account', 'UserController@updateAccount');
 
-    Route::get('/settings/billing', 'UserController@billing');
+    Route::get('/settings/billing', 'BillingController@index');
 
     Route::get('/transfer', 'TransferController@index');
     Route::post('transfer', 'TransferController@transferCredits');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\PaymentHistory;
 use Illuminate\Support\Facades\Auth;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
@@ -69,12 +70,6 @@ class FlutterwaveController extends Controller
 
         return response()->json($res);
 
-        if ($payment['status'] !== 'success') {
-            // notify something went wrong
-            return;
-        }
-
-        return redirect($payment['data']['link']);
     }
 
     /**
@@ -118,10 +113,16 @@ class FlutterwaveController extends Controller
             if ($res->status) {
                 
                 $credits = $res->data->meta->credits;
-                
+                $pay = $res->data->amount;
+
+                $history = new PaymentHistory();
+                $history->user_id = Auth::id();
+                $history->credits = intval($credits);
+                $history->price = $pay;
+                $history->save();
+                return response()->json(json_encode("done"));
                 User::where('id','=' ,Auth::user()->id)->increment('credits', $credits);
-                
-                
+
                 return redirect()->route('credits')->with('success_msg', 'Transaction success! Added '. $credits . " credits to your account.");
                 
             } else {
