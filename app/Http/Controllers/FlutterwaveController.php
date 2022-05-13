@@ -117,7 +117,7 @@ class FlutterwaveController extends Controller
 
                 $history = new PaymentHistory();
                 $history->user_id = Auth::id();
-                $history->credits = intval($credits);
+                $history->credits = ($credits);
                 $history->price = $pay;
                 $history->save();
                 return response()->json($history);

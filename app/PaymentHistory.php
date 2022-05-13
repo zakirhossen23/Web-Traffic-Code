@@ -12,7 +12,7 @@ class PaymentHistory extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'credits', 'price','date'
+        'user_id', 'credits', 'price'
     ];
 
 }
