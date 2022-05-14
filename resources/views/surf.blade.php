@@ -56,8 +56,8 @@ $(document).ready(function () {
                                 },
                                 success: function(response) {
                                     var element = document.getElementById("credits_earned")                                    
-                                    $parsed = Number(element.textContent.replace(/[^\d]/g,''));
-                                    element.textContent = $parsed + points
+                                    $parsed = Number(element.textContent.replace(/[^\d.]/g,''));
+                                    element.textContent = $parsed + Number(points)
                                     openWin();
                                 }
                             });
