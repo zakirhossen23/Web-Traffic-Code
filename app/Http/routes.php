@@ -13,9 +13,6 @@
 
 Route::get('/', 'HomeController@landing')->name('welcome');
 
-/* api routes */
-Route::post('/api/login', 'ApiController@login');
-
 
 Route::get('install/pre-installation', 'InstallController@preInstallation');
 Route::get('install/configuration', 'InstallController@getConfiguration');
@@ -105,4 +102,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
     //Route::match(['get', 'post'], '/', function () { });
 });
 
+
+/* api routes */
+Route::post('/api/login', 'ApiController@login');
+Route::get('/api/session', 'ApiController@session');
 
