@@ -106,4 +106,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
 /* api routes */
 Route::post('/api/login', 'ApiController@login');
 Route::get('/api/session', 'ApiController@session');
+Route::post('/api/session', 'ApiController@session');
+Route::get('/api/user', 'ApiController@user');
 
