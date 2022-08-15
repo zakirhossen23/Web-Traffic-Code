@@ -2,7 +2,7 @@
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 		<div class="sb-sidenav-menu">
 			<div class="nav">
-			<div class="sb-sidenav-menu-heading">NAVIGATION</div>
+				<div class="sb-sidenav-menu-heading">NAVIGATION</div>
 				<a class="nav-link" href="{{ url('/admin') }}">
 					<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 					Dashboard
@@ -27,6 +27,7 @@
 				<div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="{{ url('/admin/websites') }}">Websites List</a>
+						<a class="nav-link" href="{{ url('/admin/websites/addwebsite') }}">Add Website</a>
 					</nav>
 				</div>
 
@@ -44,14 +45,14 @@
 
 				<a class="nav-link" href="{{ url('/admin/transfers') }}">
 					<div class="sb-nav-link-icon"><i class="fas fa-paper-plane"></i></div>
-				 Transfers
+					Transfers
 				</a>
 
 				<a class="nav-link" href="{{ url('/admin/sales') }}">
 					<div class="sb-nav-link-icon"><i class="fas fa-wallet"></i></div>
-				 Sales
+					Sales
 				</a>
-				
+
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
 					<div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
 					System

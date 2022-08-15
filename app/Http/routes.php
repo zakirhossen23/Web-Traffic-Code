@@ -88,6 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
     Route::get('/credits/delete/{id}', 'AdminController@delCredits');
 
     Route::get('/websites', 'AdminController@websites');
+    Route::get('/websites/addwebsite', 'AdminController@addwebsite');
     Route::get('/websites/edit/{id}', 'AdminController@editSite');
     Route::post('/websites/edit/{id}', 'AdminController@editSite');
     Route::get('/websites/delete/{id}', 'AdminController@delSite');

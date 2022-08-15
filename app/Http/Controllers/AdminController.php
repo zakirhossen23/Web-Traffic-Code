@@ -218,6 +218,10 @@ class AdminController extends Controller
         }
         return view('admin.add');
     }
+    public function addwebsite(Request $request)
+    {
+     return view('admin.addwebsite');
+    }
 
     public function delUser($id)
     {

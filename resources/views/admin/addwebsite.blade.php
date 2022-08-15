@@ -12,7 +12,7 @@
     <!-- Theme style  -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<div class="colorlib-loader"></div>
+<div class="colorlib-loader" id="colorlib-loader" hidden></div>
 
 <div id="layoutSidenav_content">
     <main>
@@ -286,17 +286,18 @@
             })
             //----- Parse CSV-----//
             $('body').on('change', '#uploadcsv', function(e) {
+                $("#colorlib-loader")[0].hidden=false;
                 Papa.parse($("#uploadcsv")[0].files[0], {
                     download: true,
                     skipEmptyLines: true,
-                    complete: function(results) {
+                    complete: async function(results) {
                         for (let index = 0; index < results.data.length; index++) {
                             let urltext = results.data[index][0];
                             if (urltext.includes(".")) {
-                                console.log(urltext)
-                                Click_Another_Website_Box(0,urltext)
+                                Click_Another_Website_Box(0,urltext)                                
                             }
                         }
+                        $("#colorlib-loader")[0].hidden=true;
                     }
                 })
             });
